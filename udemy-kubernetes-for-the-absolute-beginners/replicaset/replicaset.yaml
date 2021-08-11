@@ -4,6 +4,7 @@ metadata:
   name: myapp-replicaset
   labels:
     app: myapp
+    tier: frontend
 spec:
   selector:
     matchLabels:
@@ -14,6 +15,7 @@ spec:
       name: nginx-2
       labels:
         app: myapp
+        tier: frontend
     spec:
       containers:
         - name: nginx
