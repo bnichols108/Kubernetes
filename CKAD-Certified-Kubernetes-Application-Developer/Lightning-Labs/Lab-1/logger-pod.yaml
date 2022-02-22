@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: logger
+  name: logger
+spec:
+  containers:
+  - image: nginx:alpine
+    name: logger
+    resources: {}
+    volumeMounts:
+      - mountPath: "/var/www/nginx"
+        name: nginx
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: nginx
+      persistentVolumeClaim:
+        claimName: log-claim
+status: {}
