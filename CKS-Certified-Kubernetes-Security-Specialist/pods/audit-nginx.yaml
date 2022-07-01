@@ -1,0 +1,14 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: audit-nginx
+spec:
+  containers:
+  - name: audit-nginx
+    image: nginx
+    securityContext:
+      allowPrivilegeEscalation: false
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: profiles/audit.json
